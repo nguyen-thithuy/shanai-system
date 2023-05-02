@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common/head :: head_fragment(title = 'ユーザー情報一覧', scripts = ~{::script}, links = ~{::link})}">
+	<meta charset="UTF-8">
+</head>
+<body>
+<div th:replace="~{shareWork::header}"></div>
+<hr>
+
+<div class="container">
+	<div class="scroll-box floatL">
+		<table class="table table-hover">
+			<tr>
+				<th class="typePerson_cell01">社員番号</th>
+                <th class="typePerson_cell02">氏名</th>
+                <th class="typePerson_cell03">雇用形態</th>
+                <th class="typePerson_cell04">部門名</th>
+                <th class="typePerson_cell05">拠点名</th>
+                <th class="typePerson_approver">第一承認者</th>
+                <th class="typePerson_approver">第二承認者</th>
+                <th class="typePerson_approver">第三承認者</th>
+                <th class="typePerson_approver">第四承認者</th>
+            </tr>
+            <tr>
+				<td>663</td>
+                <td class="user_name">
+                    グェンティトゥイ
+                </td>
+                <td>一般社員</td>
+                <td>システム開発部</td>
+                <td>システム開発部</td>
+                <td>
+                    <p>仲間和久</p>
+                </td>
+                <td>
+                    <p>西村梨絵</p>
+                </td>
+                <td>
+                    <p>三宅崇之</p>
+                </td>
+                <td>
+                    <p>園田直</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+    
+<div class="container">
+	<div class="floatL">
+		<div class="box" style="display:inline-block;">
+			<input value="" class="btn btnBack arrrowLeft" type="button" id="prev_date">
+			<select name="select" id="select">
+				<option value="2022-04">2022年04月度</option>
+                <option value="2022-05">2022年05月度</option>
+                <option value="2022-06">2022年06月度</option>
+                <option value="2022-07">2022年07月度</option>
+                <option value="2022-08">2022年08月度</option>
+                <option value="2022-09">2022年09月度</option>
+                <option value="2022-10">2022年10月度</option>
+                <option value="2022-11">2022年11月度</option>
+                <option value="2022-12">2022年12月度</option>
+                <option value="2023-01">2023年01月度</option>
+                <option value="2023-02">2023年02月度</option>
+                <option value="2023-03">2023年03月度</option>
+                <option value="2023-04">2023年04月度</option>
+                <option value="2023-05">2023年05月度</option>
+                <option value="2023-06">2023年06月度</option>
+                <option value="2023-07">2023年07月度</option>
+                <option value="2023-08">2023年08月度</option>
+                <option value="2023-09">2023年09月度</option>
+                <option value="2023-10">2023年10月度</option>
+                <option value="2023-11">2023年11月度</option>
+                <option value="2023-12">2023年12月度</option>
+                <option value="2024-01">2024年01月度</option>
+                <option value="2024-02">2024年02月度</option>
+                <option value="2024-03">2024年03月度</option>
+            </select>
+            <div class="floatR" id="month_apply">
+            </div>
+			<div class="floatR">
+				<a class="btn btnSubmit"  href="">PDF出力</a>
+            </div>
+            <div class="floatR">
+				<a class="btn btnSubmit" href="">一括申請</a>
+			</div>
+            <div class="floatR">
+            </div>
+        </div>
+        <input value="" class="btn btnNext arrrowRight" type="button" id="next_date">
+    </div>
+
+
+    <div class="scroll-box">
+        <table id="editGraphTable" class="table table-hover">
+			<thead>
+			<tr>
+				<th rowspan="1" class="cellDate" >日付</th>
+                <th rowspan="1" class="cellType">勤務区分</th>
+                <th rowspan="1" class="cellTime cellTime01  cellBreak view_work">出勤時刻</br>(打刻)</th>
+                <th rowspan="1" class="cellTime cellTime02   view_work">退勤時刻<br />(打刻)</th>
+                <th rowspan="1" class="cellTime cellTime03   view_work">休憩1開始</th>
+                <th rowspan="1" class="cellTime cellTime04   view_work">休憩1終了</th>
+                <th rowspan="1" class="cellTime cellTime05   view_work">休憩2開始</th>
+                <th rowspan="1" class="cellTime cellTime06   view_work">休憩2終了</th>
+                <th rowspan="1" class="cellTime cellTime07 cellBtime  cellBreak view_work disNone">休憩時間</th>
+                <th rowspan="1" class="cellTime cellTime07   view_work">時間有給休暇</th>
+                <th rowspan="1" class="cellTime cellTime07   view_work">残業時間</th>
+                <th rowspan="1" class="cellTime cellTime08   view_work">実働時間</th>
+                <th rowspan="1" class="cellTime cellTime09   view_work">所定内労働</th>
+                <th rowspan="1" class="cellTime cellTime14 cellOperation view_work">業務割合</th>
+                <th rowspan="1" class="cellMemo cellFreeFix cellBreak view_work">備考</th>
+                <th rowspan="1" class="cellBtn view_work">申請承認</th>
+            </tr>
+            </thead>
+            <tr class="dayRed">
+				<td class="cellDate">
+					<span class="date">21</span>
+					<span class="day">火</span>
+					<div id="work_edit_50827" class="view_work">
+						<a th:href="@{/works/workInput}"><img th:src="@{/images/icon_edit-ece93770c919c362cd578f57882cda9d615df5c43a8ce30ca7b51196788f51cd.png}" /></a>
+					</div>
+					</td>
+					<td class="cellType">
+						<div class="item01">公休</div>
+					</td>
+					<td class="cellTime cellTime01 cellBreak view_work">
+						<div class="item01">
+							<span></span>
+						</div>
+						<div class="item02">
+							<span></span>
+						</div>
+					</td>
+					<td class="cellTime cellTime02  view_work">
+						<div class="item01"></div>
+						<div class="item02">
+							<span></span>
+						</div>
+					</td>
+					<td class="cellTime cellTime03  view_work">
+					<div class="item01"></div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime04  view_work">
+					<div class="item01"></div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime05  view_work">
+					<div class="item01"></div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime07  view_work">
+					<div class="item01"></div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime07 cellBtime cellBreak view_work disNone">0:00</td>
+				<td class="cellTime cellTime07  view_work">0:00</td>
+				<td class="cellTime cellTime07  view_work">0:00</td>
+				<td class="cellTime cellTime08  view_work">0:00</td>
+				<td class="cellTime cellTime09  view_work">0:00</td>\
+				<td id="work_operation_54305" class="cellTime cellTime14 cellOperation  view_work"></td>
+				<td class="cellMemo cellBreak view_work"></td>
+				<td class="cellBtn view_work"></td>
+			</tr>
+			<tr class="">
+				<td class="cellDate">
+					<span class="date">22</span>
+                    <span class="day">水</span>
+                    <div id="work_edit_50828" class="view_work">
+						<a th:href="@{/works/workInput}"><img th:src="@{/images/icon_edit-ece93770c919c362cd578f57882cda9d615df5c43a8ce30ca7b51196788f51cd.png}" /></a>
+					</div>
+				</td>
+				<td class="cellType">
+					<div class="item01">出勤</div>
+				</td>
+				<td class="cellTime cellTime01 cellBreak view_work">
+					<div class="item01">
+						<span>09:00</span>
+					</div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime02  view_work">
+					<div class="item01">18:00</div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime03  view_work">
+					<div class="item01">12:00</div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime04  view_work">
+					<div class="item01">13:00</div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime05  view_work">
+					<div class="item01"></div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime07  view_work">
+					<div class="item01"></div>
+					<div class="item02"></div>
+				</td>
+				<td class="cellTime cellTime07 cellBtime cellBreak view_work disNone">1:00</td>
+				<td class="cellTime cellTime07  view_work">0:00</td>
+				<td class="cellTime cellTime07  view_work">0:00</td>
+				<td class="cellTime cellTime08  view_work">8:00</td>
+				<td class="cellTime cellTime09  view_work">8:00</td>
+			</tr>
+			<tr class="">
+				<td class="cellDate">
+					<span class="date">23</span>
+					<span class="day">木</span>
+					<div id="work_edit_50828" class="view_work">
+						<a th:href="@{/works/workInput}"><img th:src="@{/images/icon_edit-ece93770c919c362cd578f57882cda9d615df5c43a8ce30ca7b51196788f51cd.png}" /></a>
+					</div>
+				</td>
+				<td class="cellType">
+					<div class="item01">出勤</div>
+				</td>
+				<td class="cellTime cellTime01 cellBreak view_work">
+					<div class="item01">
+						<span>09:00</span>
+					</div>
+					<div class="item02">
+						<span></span>
+					</div>
+				</td>
+				<td class="cellTime cellTime02  view_work">
+					<div class="item01">18:00</div>
+					<div class="item02"><span></span></div>
+				</td>
+				<td class="cellTime cellTime03  view_work">
+					<div class="item01">12:00</div>
+					<div class="item02"><span></span></div>
+				</td>
+				<td class="cellTime cellTime04  view_work">
+					<div class="item01">13:00</div>
+					<div class="item02"><span></span></div>
+				</td>
+				<td class="cellTime cellTime05  view_work">
+					<div class="item01"></div>
+					<div class="item02"><span></span></div>
+				</td>
+				<td class="cellTime cellTime07  view_work">
+					<div class="item01"></div>
+					<div class="item02"><span></span></div>
+				</td>
+				<td class="cellTime cellTime07 cellBtime cellBreak view_work disNone">1:00</td>
+				<td class="cellTime cellTime07  view_work">0:00</td>
+				<td class="cellTime cellTime07  view_work">0:00</td>
+				<td class="cellTime cellTime08  view_work">8:00</td>
+				<td class="cellTime cellTime09  view_work">8:00</td>
+			</tr>
+		</table>
+    </div>
+</div>
+
+</body>
+
+</html>

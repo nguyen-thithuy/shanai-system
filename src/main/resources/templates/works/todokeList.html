@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>届出書</title>
+</head>
+<body>
+<div class="float-end">
+	<a th:href="@{/works/todokeInput}" class="btn btn-primary">申請登録</a>
+</div>
+<div class="float-end">
+  <a th:href="@{/works/index}" class="btn btn-primary">戻る</a>
+</div>
+<div class="d-flex justify-content-between">  
+    <input type="button" class="btn btn-info" id="prev_btn" value="前へ" />
+    <input type="button" class="btn btn-info" id="next_btn" value="次へ" />
+</div>
+<hr>
+<h3>出力概要</h3>
+<hr>
+<ul>
+	<li>ヘッダ
+	<li>利用者の情報を出力する。<br>社員番号、氏名、雇用形態、部門名、拠点名、第一承認者、第二承認者、第三承認者、第四承認者
+	<li>「月締申請」ボタン
+	<li>タブ：「申請中」「承認済」「全て」。
+	<li>一覧（タブによる違いはない）：申請日時、届出区分、申請区分、対象日、残業上限時刻、理由・コメント、申請承認
+	<li>表示件数プルダウン（10、20、50、100、200）
+	<li>フッタ
+</ul>
+
+</body>
+</html>
