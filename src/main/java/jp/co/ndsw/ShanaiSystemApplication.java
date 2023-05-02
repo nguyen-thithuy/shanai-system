@@ -11,4 +11,3 @@ public class ShanaiSystemApplication {
 	}
 
 }
-// EOF for github test
