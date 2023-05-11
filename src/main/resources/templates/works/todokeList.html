@@ -1,32 +1,116 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>届出書</title>
-</head>
-<body>
-<div class="float-end">
+<title>申請</title>
+
+
+<div id="contents">
+ 
+  <div id="pageSystemBumon" class="typeEdit work_procedure applications">
+
+    <div id="main">
+      <div id="mainInner">
+
+        <div class="reportHeader pageHeader">
+          <h1>申請</h1>
+          <div class="box">
+          </div>
+        </div>
+       <a class="btn btn-primary" href="/works/workList">戻る</a>
+        <div class="tableHeader"><table class="tableNormal tableYoko typePerson floatL">
+  <tr>
+    <th>社員番号</th>
+    <th>氏名</th>
+    <th>雇用形態</th>
+    <th>部門名</th>
+      <th>拠点名</th>
+        <th>第一承認者</th>
+        <th>第二承認者</th>
+        <th>第三承認者</th>
+        <th>第四承認者</th>
+  </tr>
+  <tr>
+    
+    <td>663</td>
+    <td>グェンティトゥイ</td>
+    <td>一般社員</td>
+    <td>システム開発部</td>
+      <td>システム開発部</td>
+        <td>
+            <p>仲間和久</p>
+        </td>
+        <td>
+            <p>西村梨絵</p>
+        </td>
+        <td>
+            <p>三宅崇之</p>
+        </td>
+        <td>
+            <p>園田直</p>
+        </td>
+  </tr>
+</table>
+</div>
+          <div class="float-end">
 	<a th:href="@{/works/todokeInput}" class="btn btn-primary">申請登録</a>
 </div>
-<div class="float-end">
-  <a th:href="@{/works/index}" class="btn btn-primary">戻る</a>
+
+
+            <div class="tableHeader">
+            </div>
+            
+              <form id="" action="" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+              <input type="hidden" name="type" id="type" value="applying" />
+            <table class="">
+              <thead>
+                <tr>
+                  <th class="cell01">
+                    <input type="text" name="created_at" id="created_at" placeholder="申請日時" />
+                  </th>
+                  <th class="cell02" style="">
+                    <select name="kind" id="kind"><option value="">届出区分</option><option value="segment">勤務区分等</option>
+<option value="time_paid_holiday">時間有給休暇</option></select>
+                  </th>
+                  <th class="cell02">
+                    <select name="segment_id" id="segment_id"><option value="">申請区分</option><option value="5">有休</option>
+<option value="6">午前有休</option>
+<option value="7">午後有休</option>
+<option value="8">休日出勤（土祝）</option>
+<option value="9">休日出勤（日曜）</option>
+<option value="3">振出</option>
+<option value="11">欠勤</option>
+<option value="10">特休</option>
+<option value="25">慶弔</option>
+<option value="23">出勤（残業）</option>
+<option value="27">教育訓練</option>
+<option value="28">休業</option></select>
+                  </th>
+                  <th class="cell03">
+                    <input type="text" name="date" id="date" placeholder="対象日" />
+                  </th>
+                  <th class="cell04">残業上限時刻</th>
+                  <th class="cell05">理由・コメント</th>
+                  <th class="cell06">申請承認</th>
+                </tr>
+              </thead>
+              <tbody id="data_list">
+                  <tr><td colspan="7" style="text-align:center;">データは登録されていません。</td></tr>
+              </tbody>
+            </table>
+</form>            
+            <div class="floatR per">
+  表示件数
+  <select name="per" id="per" form="search_form"><option value="10">10</option>
+<option selected="selected" value="20">20</option>
+<option value="50">50</option>
+<option value="100">100</option>
+<option value="200">200</option></select>
+  件
 </div>
-<div class="d-flex justify-content-between">  
-    <input type="button" class="btn btn-info" id="prev_btn" value="前へ" />
-    <input type="button" class="btn btn-info" id="next_btn" value="次へ" />
-</div>
-<hr>
-<h3>出力概要</h3>
-<hr>
-<ul>
-	<li>ヘッダ
-	<li>利用者の情報を出力する。<br>社員番号、氏名、雇用形態、部門名、拠点名、第一承認者、第二承認者、第三承認者、第四承認者
-	<li>「月締申請」ボタン
-	<li>タブ：「申請中」「承認済」「全て」。
-	<li>一覧（タブによる違いはない）：申請日時、届出区分、申請区分、対象日、残業上限時刻、理由・コメント、申請承認
-	<li>表示件数プルダウン（10、20、50、100、200）
-	<li>フッタ
-</ul>
+
+            
 
 </body>
 </html>
+

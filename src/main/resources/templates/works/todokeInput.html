@@ -2,35 +2,263 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>届出書</title>
-</head>
-<body>
-    <div class="float-end">
-      <a th:href="@{/works/todokeList}" class="btn btn-primary">申請登録</a>
+<title>申請登録</title>
+
+	</head>
+
+<title>申請登録</title>
+
+
+
+<div id="contents">
+ 
+  <div id="pageSystemBumon" class="typeEdit work_procedure_edit">
+
+    <div id="main">
+      <div id="mainInner">
+
+        <div class="reportHeader pageHeader">
+          <h1>申請登録</h1>
+          <div class="box">
+            <a class="btn btnBack" href="/works/todokeList">戻る</a>
+          </div>
+        </div>
+
+
+        <form class="new_work_procedure" id="upload_form" enctype="multipart/form-data" action="/works/todokeInput" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="M8LgVKobPqyTgwUnaCIxNLpt7CFJJkP54+h7hKV63aYVkCB1HBzsOQUeqqRJAuYy7udzmZqWspZESELmTrnEBg==" />
+
+          <div class="tableHeader pageTransition">
+            <div class="floatL">
+              <div class="box">
+                <input type="submit" name="commit" value="申請する" class="btn btnSubmit btnBlue disable_with" data-disable-with="送信中..." />
+              </div>
+            </div>
+            <div class="floatR">
+            </div>
+          </div>
+
+          <div class="tableHeader">
+            <table class="tableNormal tableTate">
+              <tr>
+                <th>氏名</th>
+                <td>グェンティトゥイ</td>
+              </tr>
+              <tr>
+                <th>社員番号</th>
+                <td>663</td>
+              </tr>
+            </table>
+
+            <table class="tableNormal tableTate">
+  <tr style="">
+    <th>届出区分<span class="required">*</span></th>
+    <td>
+      <select name="work_procedure[kind]" id="work_procedure_kind"><option selected="selected" value="segment">勤務区分等</option>
+<option value="time_paid_holiday">時間有給休暇</option></select>
+    </td>
+  </tr>
+  <tr id="segments_tr" class="kind_segment">
+    <th>申請区分<span class="required">*</span></th>
+    <td>
+        <select name="work_procedure[segment_id]" id="work_procedure_segment_id"><option value="5">有休</option>
+<option value="6">午前有休</option>
+<option value="7">午後有休</option>
+<option value="8">休日出勤（土祝）</option>
+<option value="9">休日出勤（日曜）</option>
+<option value="3">振出</option>
+<option value="11">欠勤</option>
+<option value="10">特休</option>
+<option value="25">慶弔</option>
+<option value="23">出勤（残業）</option>
+<option value="27">教育訓練</option>
+<option value="28">休業</option></select>
+    </td>
+  </tr>
+  <tr>
+    <th>対象日<span class="required">*</span></th>
+    <td>
+      <select id="work_procedure_date_1i" name="work_procedure[date(1i)]">
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+<option value="2023" selected="selected">2023</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+</select>
+年<select id="work_procedure_date_2i" name="work_procedure[date(2i)]">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5" selected="selected">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+月<select id="work_procedure_date_3i" name="work_procedure[date(3i)]">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10" selected="selected">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+日
+      <span id="work_procedure_date_week"></span>
+        <span id="term" style="display:none;">
+          〜
+          <select id="work_procedure_end_date_1i" name="work_procedure[end_date(1i)]">
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+<option value="2023" selected="selected">2023</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+</select>
+年<select id="work_procedure_end_date_2i" name="work_procedure[end_date(2i)]">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5" selected="selected">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+月<select id="work_procedure_end_date_3i" name="work_procedure[end_date(3i)]">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10" selected="selected">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+日
+        
+<span id="work_procedure_end_date_week"></span>
+</span>
+<label><input name="work_procedure[term]" type="hidden" value="0" /><input type="checkbox" value="1" name="work_procedure[term]" id="work_procedure_term" /> 期間指定</label>
+</td>
+</tr>
+
+
+
+  <tr>
+    <th>理由<span class="required">*</span></th>
+    <td><textarea name="work_procedure[notes]" id="work_procedure_notes">
+</textarea></td>
+  </tr>
+</table>
+
+<table class="tableNormal tableTate">
+  <tr>
+    <th>承認者</th>
+    <td>
+      
+            <p>
+            第一承認者: 
+            仲間和久
+            </p>
+            <p>
+            第二承認者: 
+            西村梨絵
+            </p>
+            <p>
+            第三承認者: 
+            三宅崇之
+            </p>
+            <p>
+            第四承認者: 
+            園田直
+            </p>
+    </td>
+  </tr>
+</table>
+
+<table class="tableNormal tableTate">
+  <tr>
+    <th>承認履歴</th>
+    <td>
+    </td>
+  </tr>
+</table>
+
+
+<div class="box">
+            <a class="btn btnBack" href="/works/todokeList">戻る</a>
+          </div>
+              <input type="submit" name="commit" value="申請する" class="btn btnSubmit btnBlue disable_with" data-disable-with="申請する" />
+            </div>
+          </div>
+         
+</form>      </div>
     </div>
-    <div class="float-end">
-      <a th:href="@{/works/todokeInput}" class="btn btn-primary">戻る</a>
-    </div>
-	<hr>
-	<h3>出力概要</h3>
-	<hr>
-	<ul>
-		<li>ヘッダ
-		<li>「申請する」ボタン
-		<li>氏名：表示
-		<li>社員番号：表示
-		<li>届出区分：プルダウン（勤務区分当、時間有給休暇）
-		<li>届出区分が勤務区分等の時の次の１行目 - 申請区分：プロダウン’（有休、午前有休、午後有休、休日出勤（土曜）、休日出勤（日曜）、振出、欠勤、特休、慶弔、出勤（残業）、教育訓練、休業）
-		<li>届出区分が勤務区分等の時の次の２行目 - 対象日：プロダウン’（年、月、日）、曜日表示、チェックボックス：期間指定、期間指定がONの時 - いつまでのプルダウン（年、月、日）、曜日表示、チェックボックス：期間指定（ON）
-		<li>届出区分が時間有給休暇の時の次の１行目 - 対象日：プロダウン’（年、月、日）、曜日表示、チェックボックス：期間指定、期間指定がONの時 - いつまでのプルダウン（年、月、日）、曜日表示、チェックボックス：期間指定（ON）
-		<li>届出区分が時間有給休暇の時の次の２行目 - 時間有給休暇1：開始時刻プルダウン’（00:00、00:05、00:10、00:15、 ... 23:45）、翌日チェックボックス、時間プルダウン（01:00、02:00、... 08:00）、＋ボタン（＋ボタン押下で時間有給休暇2を表示。2以降は－ボタンも表示（－ボタン押下で選択している時間有給休暇が消える））
-		<li>理由テキストエリア
-		<li>承認者表示（第一承認者～第四承認者）
-		<li>承認履歴表示（何が出力されるかわからない）
-		<li>「戻る」ボタン
-		<li>「申請する」ボタン
-		<li>フッタ
-	</ul>
+    
+  </div>
+ 
+</div>
+
+
+<br/>
+
+
 
 </body>
 </html>
+
